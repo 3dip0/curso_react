@@ -1,0 +1,34 @@
+useEffect:
+
+    ###dentro do componente, ou função###
+    Inicia uma variavel setando um valor a ele
+
+    ex.:
+    useEffect(() => {
+        getSatellites(props.id).then(data => {
+            setSatellites(data['satellites'])
+        })
+    }, [props]);
+
+async function:
+
+    fora do componente, função assincrona, trata promises, evitando cascatas (.then)
+    é declarada para indicar a promise aguardar o retorno de algum valor.
+
+    ex.:
+    async function getSatellites(id) {
+        let response = await fetch(`http://localhost:3000/api/${id}.json`)
+        return await response.json()
+}
+
+useState:
+
+    Dentro de um componente, declara um estado inicial de um objeto, no useState usa o const para que sempre inicialize
+    ao carregar a pagina com o valor default declarado dentro dele, ex.: ([])
+
+    ex.:
+    const [planets, setPlanets] = useState([])
+
+
+criar rotas:
+    npm i react-router-dom --save
